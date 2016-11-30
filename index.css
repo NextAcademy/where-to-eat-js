@@ -1,0 +1,40 @@
+h2 {
+	text-align: center;
+}
+
+.spacer {
+	height: 20px;
+	width: 100%;
+}
+
+.center {
+	margin: auto;	
+	display: table;
+}
+
+
+.instructions {
+	text-align: center;
+	color: blue;
+	font-size: 1.5em;
+	padding-bottom: 20px;
+}
+
+#circle {
+	width: 150px;
+	height: 150px;
+	border: 2px solid #000;
+	border-radius: 50%;
+}
+
+#restaurant {
+	text-align: center;
+	padding-top: 20px;
+	color: red;
+	font-size: 2em;
+}
+
+.role-image {
+	width: 40%;
+}
+
