@@ -1,32 +1,43 @@
-// the 'gif'
-function startRestaurant(){
-  //this will stop the "gif"
-  restaurant = document.getElementById('restaurant');
-  restaurants = ['Joy', 'Sadness', 'Anger', 'Fear', 'Disgust'];
+var myVar;
 
-  //shuffle array
-
-  //output array
-
-  // use a while loop
-  //set time out  
-  
+// http://www.w3schools.com/js/js_timing.asp
+function startRandom() {
+  myVar = setInterval(showRestaurant, 200);
+  return myVar;
 }
 
-// stop the 'gif'
-function getRestaurant(){
+// Show a restaurant in random order
+function showRestaurant(){
 
-  // alert('get');
-  // remember to read up on appendChild (what Tristan mentioned) and guide the students accordingly
+  restaurants = ['pedas', 'bens', 'nandos', 'zap fan'];
+  colors = ['red', 'blue', 'green', 'black', 'cyan'];
+  r = getRandomInt(0, restaurants.length);
+  eat = document.getElementById("restaurant");    
+  eat.innerHTML = restaurants[r];
+  eat.style.color = colors[r];
+}
+
+// get a random integer
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+// Get a restaurant
+function getRestaurant(restaurant){
+  clearInterval(myVar);
+  eat = document.getElementById("restaurant");   
+  console.log(eat);
 }
 
 
 function addRestaurantListener(){
-  circle = document.getElementById('circle');
-  circle.addEventListener("click", startRestaurant);
+  startBtn = document.getElementById('start-random-button');
+  startBtn.addEventListener("click", startRandom)
 
-  // restaurant = document.getElementById('restaurant');
-  // restaurant.addEventListener("click", startRestaurant)
+  getBtn = document.getElementById('get-restaurant-button');
+  getBtn.addEventListener("click", getRestaurant);
 }
 
 // wait for DOM content to load before binding an event
