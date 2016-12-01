@@ -9,12 +9,17 @@ function startRandom() {
 // Show a restaurant in random order
 function showRestaurant(){
 
-  restaurants = ['pedas', 'bens', 'nandos', 'zap fan'];
+  if (document.getElementById('message')) {
+    m = document.getElementById('message');
+    m.parentNode.removeChild(m);
+  }
+
+  restaurants = ['Pedas-Pedas', "Ben's", "Fish Head Noodles", 'Mixed Rice Stall', 'Nasi Kukus Stall'];
   colors = ['red', 'blue', 'green', 'black', 'cyan'];
   r = getRandomInt(0, restaurants.length);
-  eat = document.getElementById("restaurant");    
-  eat.innerHTML = restaurants[r];
-  eat.style.color = colors[r];
+  restaurant = document.getElementById("restaurant");    
+  restaurant.innerHTML = restaurants[r];
+  restaurant.style.color = colors[r];
 }
 
 // get a random integer
@@ -27,10 +32,23 @@ function getRandomInt(min, max) {
 // Get a restaurant
 function getRestaurant(restaurant){
   clearInterval(myVar);
-  eat = document.getElementById("restaurant");   
-  console.log(eat);
-}
+  
+  restaurant = document.getElementById("restaurant");   
 
+  // create a h3 tag
+  message = document.createElement('h3');
+  // give it an ID
+  message.setAttribute('id', 'message');
+
+  // insert text inside the created h3 tag
+  message.innerHTML = "Great, let's go to " + restaurant.innerHTML + "!";
+
+  // put it after the "get a place" button
+  //document.getElementsByClassName('center')[0].insertBefore(message, document.getElementById('get-restaurant-button').nextSibling);
+
+  // check out the difference! :) 
+  document.getElementsByClassName('center')[0].appendChild(message);
+}
 
 function addRestaurantListener(){
   startBtn = document.getElementById('start-random-button');
