@@ -1,3 +1,5 @@
 This is my line (typed in master branch).
 
 This is my line (typed in feature/user branch).
+
+This is another line from the feature/user branch.
